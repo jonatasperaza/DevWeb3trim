@@ -1,4 +1,4 @@
-import api from '../plugin/index.js'
+import api from '../../plugin/index.js'
 
 class animesService {
     async getAnimes(){

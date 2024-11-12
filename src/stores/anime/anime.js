@@ -1,10 +1,7 @@
 import { defineStore } from 'pinia'
-import { useStorage } from '@vueuse/core'
 import animeService from '@/service'
 import router from '@/router'
 import { reactive, ref } from 'vue'
-
-const anime = animeService()
 
 export const useAnimesStore = defineStore('animes', () => {
   const state = reactive({
@@ -18,7 +15,7 @@ export const useAnimesStore = defineStore('animes', () => {
   const getTopAnimes = async () => {
     isLoading.value = true
     try{
-      const response = await anime.getAnimes()
+      const response = await animeService.aniveService.getAnimes()
       state.animes = response
     }
     catch(error){

@@ -1,8 +1,7 @@
 <script setup>
-
+import HomeComponent from '@/components/HomeComponent.vue';
 </script>
 
 <template>
-
-    teste
+<HomeComponent />
 </template>
