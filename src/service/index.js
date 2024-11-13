@@ -1,3 +1,3 @@
-import animeService from './animes/anime';
+import moviesService from './movies/movies';
 
-export default { animeService };
+export default { moviesService }

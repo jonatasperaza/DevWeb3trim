@@ -1,25 +1,28 @@
 <script setup>
-import { useAnimesStore } from '@/stores/anime/anime'
+import { useMoviesStore } from '@/stores/movie/movie'
 import { onMounted } from 'vue'
 
-const animesStore = useAnimesStore()
+const moviesStore = useMoviesStore()
 
 onMounted(async () => {
-  await animesStore.getTopAnimes()
+  await moviesStore.getTopMovies()
 })
 </script>
 
 <template>
   <main>
     <section>
-      <h1>Top Animes</h1>
+      <h1>Top Movies</h1>
       <ul>
-        <li v-for="anime in animesStore.state.animes.data" :key="anime.mal_id">
-          <h2 class="tittle">{{ anime.title.split("").length >= 20 ? anime.title.slice(0, 17) + "..." : anime.title }}</h2>
-          <RouterLink :to="`/anime/${anime.mal_id}`">{{ anime.title }}</RouterLink>
-          <img :src="anime?.images?.webp?.image_url" :alt="anime.title" />
+        <li v-for="movie in moviesStore.state.movies.results" :key="movie">
+          <h2 class="tittle">
+            {{
+              movie.title.split('').length >= 20 ? movie.title.slice(0, 17) + '...' : movie.title
+            }}
+          </h2>
+          <img :src="`https://image.tmdb.org/t/p/w185/${movie.backdrop_path}`" :alt="movie.title" />
           <div class="sinopsis">
-              <p>{{ anime.synopsis }}</p>
+            <p>{{ movie.synopsis }}</p>
           </div>
         </li>
       </ul>
@@ -48,17 +51,17 @@ li {
   list-style: none;
 }
 
-.sinopsis{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
+.sinopsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
-.tittle{
-    font-size: 1.5rem;
-    font-weight: bold;
+.tittle {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 </style>

@@ -23,27 +23,27 @@ console.log(animes.value)
 </template> -->
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useAnimesStore } from '@/stores/anime/anime';
+import { onMounted, ref } from 'vue'
+import { useAnimesStore } from '@/stores/movie/movie'
 
-const animesStore = useAnimesStore();
+const animesStore = useAnimesStore()
 
 onMounted(async () => {
-    await animesStore.getTopAnimes();
-});
-
+  await animesStore.getTopAnimes()
+})
 </script>
 
 <template>
-    <main>
-        <ul>
-            {{ animes }}
-            <li v-for="anime in animesStore.state.animes.data" :key="anime.mal_id">
-                <img :src="anime.images.webp.large_image_url" alt="">
-                <p>{{ anime.title }}</p>
-                <RouterLink :to="`/anime/${anime.mal_id}/episodes`">Ver más</RouterLink>
-            </li>
-        </ul>
-    </main>
-
+  <main>
+    <ul>
+      {{
+        animes
+      }}
+      <li v-for="anime in animesStore.state.animes.data" :key="anime.mal_id">
+        <img :src="anime.images.webp.large_image_url" alt="" />
+        <p>{{ anime.title }}</p>
+        <RouterLink :to="`/anime/${anime.mal_id}/episodes`">Ver más</RouterLink>
+      </li>
+    </ul>
+  </main>
 </template>
