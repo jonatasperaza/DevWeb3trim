@@ -16,6 +16,7 @@ onMounted(async () => {
       <ul>
         <li v-for="anime in animesStore.state.animes.data" :key="anime.mal_id">
           <h2 class="tittle">{{ anime.title.split("").length >= 20 ? anime.title.slice(0, 17) + "..." : anime.title }}</h2>
+          <RouterLink :to="`/anime/${anime.mal_id}`">{{ anime.title }}</RouterLink>
           <img :src="anime?.images?.webp?.image_url" :alt="anime.title" />
           <div class="sinopsis">
               <p>{{ anime.synopsis }}</p>

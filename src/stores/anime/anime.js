@@ -15,8 +15,22 @@ export const useAnimesStore = defineStore('animes', () => {
   const getTopAnimes = async () => {
     isLoading.value = true
     try{
-      const response = await animeService.aniveService.getAnimes()
+      const response = await animeService.animeService.getAnimes()
       state.animes = response
+    }
+    catch(error){
+      console.log(error)
+    }
+    finally{
+      isLoading.value = false
+    }
+  }
+
+  const getAnime = async (id) => {
+    isLoading.value = true
+    try{
+      const response = await animeService.animeService.getAnime(id)
+      state.currentAnime = response
     }
     catch(error){
       console.log(error)
@@ -28,6 +42,7 @@ export const useAnimesStore = defineStore('animes', () => {
   return {
     state,
     isLoading,
-    getTopAnimes
+    getTopAnimes,
+    getAnime
   }
 })

@@ -13,7 +13,7 @@ class animesService {
 
     async getAnime(id){
         try{
-            const response = await api.get(`anime/${id}`)
+            const response = await api.get(`anime/${id}/full`)
             return response.data
         }
         catch(error){
