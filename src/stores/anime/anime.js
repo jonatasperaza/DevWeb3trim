@@ -7,6 +7,7 @@ export const useAnimesStore = defineStore('animes', () => {
   const state = reactive({
     animes: [],
     currentAnime: null,
+    currentEpisodes: null
   })
 
 
@@ -39,10 +40,40 @@ export const useAnimesStore = defineStore('animes', () => {
       isLoading.value = false
     }
   }
+
+  const getAnimeEpisodes = async (id) => {
+    isLoading.value = true
+    try{
+      const response = await animeService.animeService.getAnimeEpisodes(id)
+      state.currentEpisodes = response
+    }
+    catch(error){
+      console.log(error)
+    }
+    finally{
+      isLoading.value = false
+    }
+  }
+
+  const searchAnimes = async (query) => {
+    isLoading.value = true
+    try{
+      const response = await animeService.animeService.searchAnimes(query)
+      state.animes = response
+    }
+    catch(error){
+      console.log(error)
+    }
+    finally{
+      isLoading.value = false
+    }
+  }
   return {
     state,
     isLoading,
     getTopAnimes,
-    getAnime
+    getAnime,
+    getAnimeEpisodes,
+    searchAnimes
   }
 })

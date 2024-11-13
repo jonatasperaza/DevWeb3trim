@@ -13,7 +13,17 @@ const router = createRouter({
       path: '/anime/:id',
       name: 'anime',
       component: () => import('../views/AnimeView.vue'),
-    }
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('../views/testView.vue'),
+    },
+    {
+      path: '/anime/:id/episodes',
+      name: 'episodes',
+      component: () => import('../views/EpisodesView.vue'),
+    },
   ],
 })
 
