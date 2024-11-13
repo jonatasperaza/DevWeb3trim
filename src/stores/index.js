@@ -1,3 +1,3 @@
-import { useAnimesStore } from "./anime/anime";
+import { useAnimesStore } from './movie/movie'
 
-export default { useAnimesStore}
+export default { useAnimesStore }

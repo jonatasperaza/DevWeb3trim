@@ -6,10 +6,15 @@ const id = router?.currentRoute?.value?.params?.id
 const animesStore = useAnimesStore()
 
 onMounted(async () => {
-  await animesStore.getAnime(id)
+  await animesStore.getAnimeEpisodes(id)
 })
 </script>
 
 <template>
-  {{ animesStore.state.currentAnime?.data }}
+  {{ id }}
+  <video
+    :src="animesStore.state.currentEpisodes?.data[0]?.url"
+    v-if="animesStore.state.currentEpisodes"
+  ></video>
+  {{ animesStore.state.currentEpisodes?.data[0] }}
 </template>
