@@ -1,6 +1,10 @@
 <script setup>
 import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
 import BookMark from "vue-material-design-icons/BookMark.vue";
+
+defineProps({
+    movie: Object
+})
 </script>
 
 <template>
@@ -9,11 +13,9 @@ import BookMark from "vue-material-design-icons/BookMark.vue";
             <div class="tag">
                 Movie
             </div>
-            <h2>Shrek 4</h2>
-            <div class="date">12/12/12 February</div>
-            <div class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem rerum porro
-                doloremque, ea dolorem ut alias odio praesentium enim ab ipsa tempora recusandae atque ipsam neque
-                architecto sit asperiores eveniet.</div>
+            <h2>{{ movie.title }}</h2>
+            <div class="date">{{ movie.release_date }}</div>
+            <div class="desc">{{ movie.overview }}.</div>
             <div class="buttons">
                 <button class="green">
                     <PlayCircle />

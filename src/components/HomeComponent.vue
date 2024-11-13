@@ -20,7 +20,7 @@ onMounted(async () => {
               movie.title.split('').length >= 20 ? movie.title.slice(0, 17) + '...' : movie.title
             }}
           </h2>
-          <img :src="`https://image.tmdb.org/t/p/w185/${movie.backdrop_path}`" :alt="movie.title" />
+          <img :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" :alt="movie.title" />
           <div class="sinopsis">
             <p>{{ movie.synopsis }}</p>
           </div>

@@ -4,6 +4,10 @@ import HeaderComponent from '../global/HeaderComponent.vue';
 import DescComp from './DescComp.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
+import { useMoviesStore } from '@/stores/movie/movie';	
+
+
+const moviesStore = useMoviesStore()
 
 const config = {
     autoplay: 6000,
@@ -19,21 +23,20 @@ const fotos = ref([
     "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/E7116738B9622AD456A0CAC55BFA0048B747C6FDDAE620D29C4A2AEA4D4D27BC/scale?width=1200&aspectRatio=1.78&format=jpeg",
 ])
 
+
 </script>
 
 <template>
 
     <HeaderComponent />
     <Carousel v-bind="config">
-
-        <Slide v-for="slide in fotos" :key="slide">
+        {{ moviesStore.state?.movies }}
+        <Slide v-for="slide in moviesStore.state.moviesPhotos" :key="slide">
             <div class="carousel__item">
-                
-                <div class="allItem" :style="{backgroundImage: `url(${slide})`}">
-                    <DescComp />
+                <div class="allItem" :style="{backgroundImage: `url('https://image.tmdb.org/t/p/original/${slide?.backdrop_path}')`}">
+                    <DescComp :movie="slide" />
                 </div>
-            
-            </div>
+            </div> 
         </Slide>
         <template #addons>
             <Navigation />
