@@ -34,7 +34,7 @@ defineProps({
 section {
     width: 80%;
     margin: auto;
-    margin-top: 20rem;
+    margin-top: 20vw;
     z-index: 10;
 }
 

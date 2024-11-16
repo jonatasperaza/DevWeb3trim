@@ -6,8 +6,8 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="" alt="">
-                <h1>LOGO LOGO</h1>
+                <img src="../../../public/logo.png" class="logo" alt="">
+                <h1>ABORGUEFLIX</h1>
             </div>
             <div class="links">
                 <router-link to="/">Home</router-link>
@@ -36,6 +36,10 @@ header {
     padding: .5rem 0;
 }
 
+img.logo{
+    width: 12%;
+}
+
 header::after {
     content: "";
     position: absolute;
@@ -50,7 +54,6 @@ header::after {
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 

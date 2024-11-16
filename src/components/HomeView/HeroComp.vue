@@ -46,7 +46,7 @@ const fotos = ref([
 
 <style scoped>
 .carousel__item {
-    height: 700px;
+    height: 50vw;
     width: 100%;
     color: #fff;
     font-size: 20px;
@@ -73,7 +73,7 @@ const fotos = ref([
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30%;
+    height: 10%;
     background: linear-gradient(to top, #131316, rgba(19, 19, 22, 0));
     z-index: 1;
 }
