@@ -10,25 +10,15 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/anime/:id',
-      name: 'anime',
-      component: () => import('../views/AnimeView.vue'),
+      path: "/test",
+      name: "test",
+      component: () => import('../views/testeHomeView.vue'),
     },
     {
-      path: "/",
-      name: "Home",
-      component: () => import('../views/TestHomeView.vue'),
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: () => import('../views/testView.vue'),
-    },
-    {
-      path: '/anime/:id/episodes',
-      name: 'episodes',
-      component: () => import('../views/EpisodesView.vue'),
-    },
+      path: "/movie/:id",
+      name: "movie",
+      component: () => import('../views/MovieView.vue'),
+    }
   ],
 })
 

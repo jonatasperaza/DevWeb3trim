@@ -1,6 +1,7 @@
 <script setup>
 import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
 import BookMark from "vue-material-design-icons/BookMark.vue";
+import router from "@/router";
 
 defineProps({
     movie: Object
@@ -17,7 +18,7 @@ defineProps({
             <div class="date">{{ movie.release_date }}</div>
             <div class="desc">{{ movie.overview }}.</div>
             <div class="buttons">
-                <button class="green">
+                <button class="green" @click="router.push(`/movie/${movie.id}`)">
                     <PlayCircle />
                     Watch Trailer
                 </button>
