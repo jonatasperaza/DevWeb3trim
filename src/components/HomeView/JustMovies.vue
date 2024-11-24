@@ -24,7 +24,7 @@ const config = {
             snapAlign: 'start',
         },
         500: {
-            itemsToShow: 5,
+            itemsToShow: 4,
             snapAlign: 'start',
         },
     },
@@ -43,13 +43,19 @@ const photos = ref([
 
 <template>
     <div style="resize: horizontal; overflow: auto; margin: 5rem 0;">
+        <div class="align">
+            <h2>Just Releases</h2>
+        </div>
         <Carousel v-bind="config">
             <Slide v-for="slide in photos" :key="slide">
                 <div class="allItens">
-                <div class="carousel__item">
-                    <img :src="slide" alt="">
+                    <div class="carousel__item" :style="{ backgroundImage: `url(${slide})` }">
+                        <div class="infos">
+                            <h3>Nome Filme</h3>
+                            <p>⭐ 4.6, Suspense - Drama</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </Slide>
             <template #addons>
                 <Navigation />
@@ -59,7 +65,7 @@ const photos = ref([
 </template>
 
 <style scoped>
-.allItens{
+.allItens {
     display: flex;
     align-items: center;
     width: 80%;
@@ -70,23 +76,28 @@ const photos = ref([
 }
 
 .carousel__item {
-    height: 120px;
+    height: 400px;
     width: 100%;
     background-color: #000;
     color: #fff;
-    font-size: 20px;
     border-radius: 8px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: end;
+    color: white;
+    background-size: cover;
+    padding: .5rem;
+}
+
+.align {
+    width: 95%;
+    margin: 10px auto;
     color: white;
 }
 
-.carousel__item > img {
-    width: 80%;
-    object-fit: cover;
-    border-radius: 8px;
+.infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
 }
-
-
-</style>\
+</style>
