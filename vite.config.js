@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [vue(), vueDevTools()],
   build: {
     rollupOptions: {
-      external: ['vue-material-design-icons/*'],
+      external: ['vue-material-design-icons/BookMark.vue', ],
     },
   },
   resolve: {
