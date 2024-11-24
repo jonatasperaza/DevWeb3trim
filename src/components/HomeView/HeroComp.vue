@@ -10,8 +10,9 @@ import { useMoviesStore } from '@/stores/movie/movie';
 const moviesStore = useMoviesStore()
 
 const config = {
-    autoplay: 6000,
+    autoplay: 5000,
     pauseAutoplayOnHover: true,
+    
 };
 
 const fotos = ref([
@@ -22,7 +23,7 @@ const fotos = ref([
     "https://wallpapercave.com/wp/wp1869566.jpg",
     "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/E7116738B9622AD456A0CAC55BFA0048B747C6FDDAE620D29C4A2AEA4D4D27BC/scale?width=1200&aspectRatio=1.78&format=jpeg",
 ])
-
+console.log(moviesStore.state.moviesPhotos.length)
 
 </script>
 
@@ -30,7 +31,6 @@ const fotos = ref([
 
     <HeaderComponent />
     <Carousel v-bind="config">
-        {{ moviesStore.state?.movies }}
         <Slide v-for="slide in moviesStore.state.moviesPhotos" :key="slide">
             <div class="carousel__item">
                 <div class="allItem" :style="{backgroundImage: `url('https://image.tmdb.org/t/p/original/${slide?.backdrop_path}')`}">
@@ -38,7 +38,7 @@ const fotos = ref([
                 </div>
             </div> 
         </Slide>
-        <template #addons>
+        <template #addons style="color: white !important;">
             <Navigation />
         </template>
     </Carousel>
