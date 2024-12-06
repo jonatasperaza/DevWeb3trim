@@ -38,7 +38,7 @@ console.log(moviesStore.state.moviesPhotos.length)
                 </div>
             </div> 
         </Slide>
-        <template #addons style="color: white !important;">
+        <template #addons>
             <Navigation />
         </template>
     </Carousel>
