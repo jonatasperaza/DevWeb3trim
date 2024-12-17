@@ -11,9 +11,9 @@
             </div>
             <div class="links">
                 <router-link to="/">Home</router-link>
-                <router-link to="/about">Discover</router-link>
-                <router-link to="/contact">Forum</router-link>
-                <router-link to="/login">About</router-link>
+                <router-link to="/">Discover</router-link>
+                <router-link to="/">Forum</router-link>
+                <router-link to="/">About</router-link>
             </div>
             <div class="login">
                 <!-- <Magnify /> -->

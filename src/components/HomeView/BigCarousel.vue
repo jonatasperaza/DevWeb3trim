@@ -1,70 +1,49 @@
 <script setup>
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Navigation } from 'vue3-carousel';
-import { useMoviesStore } from '@/stores/movie/movie';
-
-const moviesStore = useMoviesStore();
-
-import net from '@/assets/images/net.png';
-import disney from '@/assets/images/disney.png';
-import nation from '@/assets/images/natio.png';
-import dream from '@/assets/images/dream.png';
+import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel';
 
 const config = {
-  autoplay: 6000,
+  autoplay: 5000,
   pauseAutoplayOnHover: true,
 };
 
-const photos = ref([
-    net,
-    disney,
-    "https://logospng.org/download/hbo-max/hbo-max-2048.png",
-    "https://cdn.freelogovectors.net/wp-content/uploads/2023/10/pixar-logo-freelogovectors.net_.png",
-    "https://logos-world.net/wp-content/uploads/2020/11/Marvel-Logo-2000-2012.png",
-    nation,
-    dream,
-])
+const moviesPhotos = ref([
+  "https://wallpapercave.com/wp/wp8568141.jpg",
+  "https://wallpapercave.com/wp/wp8568141.jpg",
+  "https://wallpapercave.com/wp/wp8568141.jpg",
+  "https://wallpapercave.com/wp/wp8568141.jpg",
+  "https://wallpapercave.com/wp/wp8568141.jpg",
+  "https://wallpapercave.com/wp/wp8568141.jpg"
+]);
 </script>
 
 <template>
-  <section>
-    <div class="showInfos">
-      <div class="title">
-        <h2>Featured in AborgueFlix</h2>
-        <p>Best Featured for you today</p>
-      </div>
-      <div class="desc">
-        <div class="tag"></div>
-        <h2>Air: Courting A Legend</h2>
-        <p>⭐ 4.6 | 2h40m - 2024 - SuperHero</p>
-        <p class="descInfo">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid, necessitatibus architecto officia possimus accusantium modi natus eius dignissimos voluptate tempore assumenda, exercitationem et reiciendis veritatis deserunt ab odio iusto.
-        </p>
-      </div>
+  <section class="container">
+    <!-- Informações de Destaque -->
+    <div class="featuredInfo">
+      <h2>Featured in AborgueFlix</h2>
+      <p>#1 in Australia</p>
+      <h1>Air: Courting A Legend</h1>
+      <p class="rating">⭐ 4.6 | 2h40m · 2022 · Superhero · Actions</p>
+      <p class="description">
+        When international arms dealer and criminal mastermind Elena Federova orchestrates seven simultaneous New York City bank heists, principled agent Val Turner vows to take her down.
+      </p>
       <div class="buttons">
-        <button class="green">
-          <span>▶</span>
-          Watch Trailer
-        </button>
-        <button class="trans">
-          <span>⭐</span>
-          Add Watchlist
-        </button>
+        <button class="btnPlay">▶ Play Now</button>
+        <button class="btnWatchlist">⭐ Add Watchlist</button>
       </div>
     </div>
-    <div class="showCarousel">
+
+    <!-- Carrossel com Imagens -->
+    <div class="carouselWrapper">
       <Carousel v-bind="config">
-        <Slide v-for="slide in moviesStore.state.moviesPhotos" :key="slide">
-          <div class="carousel__item">
-            <div
-              class="allItem"
-              :style="{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${slide?.backdrop_path}')` }"
-            ></div>
-          </div>
+        <Slide v-for="(slide, index) in moviesPhotos" :key="index">
+          <img :src="slide" alt="Movie" class="carouselImage" />
         </Slide>
         <template #addons>
           <Navigation />
+          <Pagination />
         </template>
       </Carousel>
     </div>
@@ -72,89 +51,98 @@ const photos = ref([
 </template>
 
 <style scoped>
-section {
-  width: 100%;
-  height: 60vh;
+.container {
   display: grid;
-  grid-template-columns: 2.5fr 4fr;
-  margin-bottom: 4rem;
-}
-
-section > div {
-  border: 2px solid red;
-}
-
-.showInfos {
-  padding: 20px;
-}
-
-.showCarousel {
-  height: 100%;
-}
-
-.carousel__item {
-  height: 100%; 
+  grid-template-columns: 40% 60%;
+  gap: 20px;
   width: 100%;
+  height: 25vw;
+  padding: 2rem;
+  background-color: #121212;
+  color: white;
+  align-items: start;
+}
+
+/* Informações de Destaque */
+.featuredInfo {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 1rem;
 }
 
-.allItem {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center; 
-  position: relative;
-  object-fit: cover;
+.featuredInfo h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #8e8e8e;
+}
+
+.featuredInfo h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #f3f3f3;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.4;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-
-button {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 
-span {
+button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.green {
-  background-color: #4caf50;
+.btnPlay {
+  background-color: #00b04d;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  transition: 0.5s ease-in-out;
 }
 
-.green:hover {
-  background-color: #409444;
+.btnPlay:hover {
+  background-color: #008c3e;
 }
 
-.trans {
+.btnWatchlist {
   background-color: transparent;
-  color: #c1c1c1;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  margin-left: 10px;
-  border: 1px solid #c1c1c1;
-  transition: 0.5s ease-in-out;
+  color: #ddd;
+  border: 1px solid #555;
 }
 
-.trans:hover {
-  background-color: #c1c1c1;
-  color: black;
+.btnWatchlist:hover {
+  border-color: #ddd;
+  color: white;
+}
+
+/* Carrossel */
+.carouselWrapper {
+  position: relative;
+  height: 50%;
+  top: 0;
+  margin-top: -20%;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  top: 0;
 }
 </style>

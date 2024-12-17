@@ -15,16 +15,7 @@ const config = {
     
 };
 
-const fotos = ref([
-    "https://wallpapercave.com/wp/UcVKlhM.jpg",
-    "https://img.elo7.com.br/product/zoom/23CFAEC/banner-painel-incriveis-3x2m-festa.jpg",
-    "https://th.bing.com/th/id/R.decc1d964f6679bf1c578c1f5561a054?rik=czs5QCPK2koFWA&pid=ImgRaw&r=0",
-    "https://www.ocamundongo.com.br/wp-content/uploads/2015/06/thumb14.png",
-    "https://wallpapercave.com/wp/wp1869566.jpg",
-    "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/E7116738B9622AD456A0CAC55BFA0048B747C6FDDAE620D29C4A2AEA4D4D27BC/scale?width=1200&aspectRatio=1.78&format=jpeg",
-])
 console.log(moviesStore.state.moviesPhotos.length)
-
 </script>
 
 <template>

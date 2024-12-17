@@ -14,9 +14,9 @@ import Youtube from "vue-material-design-icons/Youtube.vue";
                     consequatur adipisci ipsam
                 </h2>
                 <div style="display: flex; gap: 1rem;">
-                    <router-link to="/about" class="pText">About</router-link>
-                    <router-link to="/contact" class="pText">Contact</router-link>
-                    <router-link to="/login" class="pText">Login</router-link>
+                    <router-link to="/" class="pText">About</router-link>
+                    <router-link to="/" class="pText">Contact</router-link>
+                    <router-link to="/" class="pText">Login</router-link>
                 </div>
             </div>
             <div class="social">
