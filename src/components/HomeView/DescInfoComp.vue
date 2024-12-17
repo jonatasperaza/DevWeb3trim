@@ -3,34 +3,44 @@ import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
 import BookMark from "vue-material-design-icons/BookMark.vue";
 import router from "@/router";
 
+// Propriedade recebida
 defineProps({
-    movie: Object
-})
-</script>
+  movie: Object,
+});
 
+// Função para truncar a descrição
+const truncateOverview = (overview, maxWords = 100) => {
+  if (!overview) return '';
+  const words = overview.split(' ');
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...';
+  }
+  return overview;
+};
+</script>
 <template>
     <section>
-        <div class="container">
-            <div class="tag">
-                Movie
-            </div>
-            <h2>{{ movie.title }}</h2>
-            <div class="date">{{ movie.release_date }}</div>
-            <div class="desc">{{ movie.overview }}.</div>
-            <div class="buttons">
-                <button class="green" @click="router.push(`/movie/${movie.id}`)">
-                    <PlayCircle />
-                    Watch Trailer
-                </button>
-                <button class="trans">
-                    <BookMark />
-                    Add Watchlist
-                </button>
-            </div>
+      <div class="container">
+        <div class="tag">
+          Movie
         </div>
+        <h2>{{ movie.title }}</h2>
+        <div class="date">{{ movie.release_date }}</div>
+        <div class="desc">{{ truncateOverview(movie.overview) }}</div>
+        <div class="buttons">
+          <button class="green" @click="router.push(`/movie/${movie.id}`)">
+            <PlayCircle />
+            Watch Trailer
+          </button>
+          <button class="trans">
+            <BookMark />
+            Add Watchlist
+          </button>
+        </div>
+      </div>
     </section>
-</template>
-
+  </template>
+  
 <style scoped>
 section {
     width: 80%;

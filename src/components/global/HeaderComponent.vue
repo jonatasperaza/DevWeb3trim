@@ -1,25 +1,23 @@
-<script setup>
-// import Magnify from "vue-material-design-icons/Magnify.vue";
-</script>
-
 <template>
     <header>
         <div class="container">
+            <!-- Logo à esquerda -->
             <div class="logo">
-                <img src="../../../public/logo.png" class="logo" alt="">
+                <img src="../../../public/logo.png" class="logo-img" alt="Logo">
                 <h1>ABORGUEFLIX</h1>
             </div>
-            <div class="links">
+            <!-- Navegação à direita -->
+            <nav class="nav">
                 <router-link to="/">Home</router-link>
                 <router-link to="/">Discover</router-link>
                 <router-link to="/">Forum</router-link>
                 <router-link to="/">About</router-link>
-            </div>
-            <div class="login">
-                <!-- <Magnify /> -->
-                <button class="green">Login</button>
-                <button class="transparent">Sing In</button>
-            </div>
+                <div class="login">
+                    <!-- Botões de login -->
+                    <button class="green">Login</button>
+                    <button class="transparent">Sign In</button>
+                </div>
+            </nav>
         </div>
     </header>
 </template>
@@ -27,17 +25,16 @@
 <style scoped>
 header {
     width: 100%;
-    height: 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    padding: 0 2rem;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
-    color: white;
-    padding: .5rem 0;
-}
-
-img.logo{
-    width: 12%;
 }
 
 header::after {
@@ -51,75 +48,72 @@ header::after {
     background-image: linear-gradient(180deg, rgba(0, 0, 0, .7) 40%, transparent);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-
 .container {
-    width: 80%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2 ;
+    width: 80%;
+    margin: auto;
 }
 
-.links {
+.logo {
     display: flex;
-    gap: 20px;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #c1c1c1;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    color: white;
 }
 
 .login {
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: center;
-}
-
-span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-a {
-    text-decoration: none;
-    color: #c1c1c1;
 }
 
 button {
     cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s ease-in-out;
 }
 
-.green{
+.green {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    transition: 0.5s ease-in-out;
 }
 
-.green:hover{
+.green:hover {
     background-color: #409444;
 }
 
-.transparent{
+.transparent {
     background-color: transparent;
     color: #c1c1c1;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
     border: 1px solid #c1c1c1;
-    transition: 0.5s ease-in-out;
 }
 
-.transparent:hover{
+.transparent:hover {
     background-color: #c1c1c1;
     color: black;
 }

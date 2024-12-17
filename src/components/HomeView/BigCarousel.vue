@@ -20,14 +20,28 @@ const moviesPhotos = ref([]);
 const moviesStore = useMoviesStore();
 const currentMovie = ref({});
 
+const truncateOverview = (overview, maxWords = 100) => {
+  if (!overview) return '';
+  const words = overview.split(' ');
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...';
+  }
+  return overview;
+};
 
 onMounted(() => {
-  currentMovie.value = props.content[movieIndex.value];
+  currentMovie.value = {
+    ...props.content[movieIndex.value],
+    truncatedOverview: truncateOverview(props.content[movieIndex.value]?.overview),
+  };
   moviesPhotos.value = moviesStore.state.moviesPhotos || [];
   watch(myCarousel.value.data.currentSlide, (slide) => {
     movieIndex.value = slide;
-    currentMovie.value = props.content[movieIndex.value];
-  })
+    currentMovie.value = {
+      ...props.content[movieIndex.value],
+      truncatedOverview: truncateOverview(props.content[movieIndex.value]?.overview),
+    };
+  });
 });
 
 const config = {
@@ -49,8 +63,8 @@ const config = {
         2h40m · 2022 · Superhero · Actions
       </p>
       <p class="description">
-        {{ currentMovie?.overview }}
-      </p>
+  {{ currentMovie?.truncatedOverview }}
+</p>
       <div class="buttons">
         <button class="btnPlay">▶ Play Now</button>
         <button class="btnWatchlist">⭐ Add Watchlist</button>
@@ -85,7 +99,7 @@ const config = {
   grid-template-columns: 40% 60%;
   gap: 20px;
   width: 100%;
-  height: 25vw;
+  height: 35vw;
   padding: 2rem;
   background-color: #121212;
   color: white;
@@ -161,14 +175,14 @@ button {
 /* Carrossel */
 .carouselWrapper {
   position: relative;
-  height: 50%;
+  height: 60%;
   top: 0;
-  margin-top: -20%;
+  margin-top: -5%;
 }
 
 .carouselImage {
   width: 100%;
-  height: 50%;
+  height: 90%;
   object-fit: cover;
   border-radius: 8px;
   position: relative;

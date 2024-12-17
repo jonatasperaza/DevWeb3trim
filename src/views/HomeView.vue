@@ -20,10 +20,10 @@ await moviesStore.getMoreMovies()
         <HeroComp />
         <StreamingComp />
         <!-- <JustMovies /> -->
-        <!-- <GlobalCarousel :content="moviesStore.state.comedyMovies" v-if="moviesStore.state.comedyMovies" title="Comedy Movies" />
+        <GlobalCarousel :content="moviesStore.state.comedyMovies" v-if="moviesStore.state.comedyMovies" title="Comedy Movies" />
         <GlobalCarousel :content="moviesStore.state.adventureMovies" v-if="moviesStore.state.adventureMovies" title="Adventure Movies" />
         <GlobalCarousel :content="moviesStore.state.actionMovies" v-if="moviesStore.state.actionMovies" title="Action Movies" />
-        <GlobalCarousel :content="moviesStore.state.DocumentaryMovies" v-if="moviesStore.state.DocumentaryMovies" title="Documentary Movies" /> -->
+        <GlobalCarousel :content="moviesStore.state.DocumentaryMovies" v-if="moviesStore.state.DocumentaryMovies" title="Documentary Movies" />
         <BigCarousel :content="moviesStore.state.movies" v-if="moviesStore.state.movies.length > 0"/>
 
 </template>
