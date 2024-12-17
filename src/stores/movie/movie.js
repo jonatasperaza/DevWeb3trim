@@ -22,9 +22,9 @@ export const useMoviesStore = defineStore('movies', () => {
   const getTopMovies = async () => {
     isLoading.value = true
     try {
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 3; i++) {
         const response = await moviesService.moviesService.getMovies(i)
-        state.movies = [...state.movies, response.results]
+        state.movies = [ ...state.movies, ...response.results]
         state.moviesPhotos = [
           ...state.moviesPhotos,
           ...response.results.map((movie) => {
@@ -41,11 +41,10 @@ export const useMoviesStore = defineStore('movies', () => {
           }),
         ]
       }
-      await getMoreMovies()
-      await getSeries()
-      await getTvshows()
-      console.log(state.series)
-      console.log(state.tvshows)
+      //await getMoreMovies()
+      //await getSeries()
+      //await getTvshows()
+
     } catch (error) {
       console.log(error)
     } finally {
@@ -55,9 +54,9 @@ export const useMoviesStore = defineStore('movies', () => {
 
   const getMoreMovies = async () => {
     const genres = [
-      { id: 28, name: 'Action' },
-      { id: 12, name: 'Adventure' },
       { id: 35, name: 'Comedy' },
+      { id: 12, name: 'Adventure' },
+      { id: 28, name: 'Action' },
       { id: 99, name: 'Documentary' },
     ]
     try {
@@ -139,6 +138,29 @@ export const useMoviesStore = defineStore('movies', () => {
     }
   }
 
+  const getRecomendations = async (id) => {
+    isLoading.value = true
+    try {
+      const response = await moviesService.moviesService.getRecommendations(id)
+      return response.results.map((movie) => {
+            return {
+              id: movie.id,
+              poster_path: movie.poster_path,
+              backdrop_path: movie.backdrop_path,
+              title: movie.title,
+              vote_average: movie.vote_average,
+              release_date: movie.release_date,
+              overview: movie.overview,
+              release_date: movie.release_date,
+            }
+          })
+    } catch (error) {
+      console.log(error)
+    } finally {
+      isLoading.value = false
+    }
+  }
+
   return {
     state,
     isLoading,
@@ -148,5 +170,6 @@ export const useMoviesStore = defineStore('movies', () => {
     getSeries,
     getMoreMovies,
     getTvshows,
+    getRecomendations,
   }
 })

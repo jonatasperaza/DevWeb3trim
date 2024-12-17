@@ -1,21 +1,40 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel';
+import { useMoviesStore } from '@/stores/movie/movie';
+
+const props = defineProps({
+  content: {
+    type: Array,
+    required: true,
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+});
+const myCarousel = ref(null);
+const movieIndex = ref(0);
+const moviesPhotos = ref([]);
+const moviesStore = useMoviesStore();
+const currentMovie = ref({});
+
+
+onMounted(() => {
+  currentMovie.value = props.content[movieIndex.value];
+  moviesPhotos.value = moviesStore.state.moviesPhotos || [];
+  watch(myCarousel.value.data.currentSlide, (slide) => {
+    movieIndex.value = slide;
+    currentMovie.value = props.content[movieIndex.value];
+  })
+});
 
 const config = {
-  autoplay: 5000,
-  pauseAutoplayOnHover: true,
+  itemsToShow: 1,
+  snapAlign: 'center',
+  transition: 500,
 };
-
-const moviesPhotos = ref([
-  "https://wallpapercave.com/wp/wp8568141.jpg",
-  "https://wallpapercave.com/wp/wp8568141.jpg",
-  "https://wallpapercave.com/wp/wp8568141.jpg",
-  "https://wallpapercave.com/wp/wp8568141.jpg",
-  "https://wallpapercave.com/wp/wp8568141.jpg",
-  "https://wallpapercave.com/wp/wp8568141.jpg"
-]);
 </script>
 
 <template>
@@ -24,10 +43,13 @@ const moviesPhotos = ref([
     <div class="featuredInfo">
       <h2>Featured in AborgueFlix</h2>
       <p>#1 in Australia</p>
-      <h1>Air: Courting A Legend</h1>
-      <p class="rating">⭐ 4.6 | 2h40m · 2022 · Superhero · Actions</p>
+      <h1>{{ currentMovie?.title }}</h1>
+      <p class="rating">
+        ⭐ {{ currentMovie?.vote_average?.toFixed(2)}} |
+        2h40m · 2022 · Superhero · Actions
+      </p>
       <p class="description">
-        When international arms dealer and criminal mastermind Elena Federova orchestrates seven simultaneous New York City bank heists, principled agent Val Turner vows to take her down.
+        {{ currentMovie?.overview }}
       </p>
       <div class="buttons">
         <button class="btnPlay">▶ Play Now</button>
@@ -37,9 +59,15 @@ const moviesPhotos = ref([
 
     <!-- Carrossel com Imagens -->
     <div class="carouselWrapper">
-      <Carousel v-bind="config">
-        <Slide v-for="(slide, index) in moviesPhotos" :key="index">
-          <img :src="slide" alt="Movie" class="carouselImage" />
+      <Carousel v-bind="config" ref="myCarousel">
+        <Slide v-for="(slide, index) in moviesPhotos" :key="index" :index="index">
+          <img
+            :src="slide?.backdrop_path 
+              ? `https://image.tmdb.org/t/p/original/${slide.backdrop_path}` 
+              : 'placeholder-image-url.jpg'"
+            alt="Movie"
+            class="carouselImage"
+          />
         </Slide>
         <template #addons>
           <Navigation />
@@ -49,6 +77,7 @@ const moviesPhotos = ref([
     </div>
   </section>
 </template>
+
 
 <style scoped>
 .container {

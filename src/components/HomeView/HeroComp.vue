@@ -15,7 +15,6 @@ const config = {
     
 };
 
-console.log(moviesStore.state.moviesPhotos.length)
 </script>
 
 <template>

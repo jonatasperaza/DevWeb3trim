@@ -1,6 +1,5 @@
 <script setup>
 import 'vue3-carousel/dist/carousel.css';
-import { ref } from 'vue';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { useMoviesStore } from '@/stores/movie/movie';
 import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
@@ -41,7 +40,7 @@ const config = {
             <hr>
         </div>
         <Carousel v-bind="config">
-            <Slide v-for="slide in props.content[0]" :key="slide">
+            <Slide v-for="slide in props.content" :key="slide">
                 <div class="allItens" v-if="!slide.adult">
                     <div class="carousel__item"
                         :style="{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${slide?.backdrop_path})` }">

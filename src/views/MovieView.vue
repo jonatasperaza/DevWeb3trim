@@ -1,6 +1,6 @@
 <script setup>
 import router from '@/router';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import { useMoviesStore } from '@/stores/movie/movie';
 import HeaderComponent from '@/components/global/HeaderComponent.vue';
 import PlayCircle from 'vue-material-design-icons/PlayCircle.vue';
@@ -12,12 +12,20 @@ import CarouselSimilarMovies from '@/components/Movies/CarouselSimilarMovies.vue
 
 const id = router.currentRoute.value?.params?.id;
 
+watch(() => router.currentRoute.value?.params?.id, () => {
+  router.go(0);
+});
+
 const moviesStore = useMoviesStore();
 
 const movie = ref(null);
 
+const recomendations = ref([]);
+
 onMounted(async () => {
   movie.value = await moviesStore.getMovie(id);
+  recomendations.value = await moviesStore.getRecomendations(id);
+  window.scrollTo(0, 0);
 });
 
 const subtitle = computed(() => {
@@ -66,7 +74,7 @@ V<template>
         </div>
       </div>
     </section>
-    <CarouselSimilarMovies :content="moviesStore.state.comedyMovies" title="Similar Movies" />
+    <CarouselSimilarMovies :content="recomendations" title="Similar Movies" />
   </main>
 </template>
 
