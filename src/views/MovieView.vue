@@ -32,7 +32,7 @@ const subtitle = computed(() => {
   if (!movie.value) return '';
   const releaseYear = new Date(movie.value.release_date).getFullYear();
   const genres = movie.value.genres.map((genre) => genre.name).join(' - ');
-  return `${releaseYear} | ${genres}`;
+  return `${releaseYear} | ${genres}`;                                                       
 });
 </script>
 
@@ -74,7 +74,7 @@ V<template>
         </div>
       </div>
     </section>
-    <p style="color: white;">{{ movie?.overview }}</p>
+    <h3 style="color: white; padding: 2vh 10vw;">{{ movie?.overview }}</h3>
     <CarouselSimilarMovies :content="recomendations" title="Similar Movies" />
   </main>
 </template>

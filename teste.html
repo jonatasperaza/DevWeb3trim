@@ -1,0 +1,579 @@
+
+
+
+
+
+
+
+
+	
+	
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="background" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<link rel="stylesheet" href="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/WH/theme.css" type="text/css" />
+<link rel="stylesheet" href="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/DB/theme.css" type="text/css" />
+<script type="text/javascript" src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/prototype.PrototypeResourceLoader/prototype.js"><!--
+
+//--></script>
+<script type="text/javascript" src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/date.js"><!--
+
+//--></script>
+<script type="text/javascript" src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/popcalendar.js"><!--
+
+//--></script>
+<script type="text/javascript" src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/inputTextHelp.HtmlTextHelpRenderer/inputTextHelp.js"><!--
+
+//--></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+
+
+<title>SIGAA - Sistema Integrado de Gest&#227;o de Atividades Acad&#234;micas</title>
+
+<link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" rel="stylesheet" type="text/css" /><link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" media="rich-extended-skinning" rel="stylesheet" type="text/css" /><script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src="/sigaa/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.jsf" type="text/javascript"></script><script type="text/javascript" src="/shared/javascript/jquery/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/sigaa/javascript/block-multitabs/block-multitabs.2.min.js"></script>
+
+<link rel="shortcut icon" href="/sigaa/img/sigaa.ico" />
+
+<script type="text/javascript" src="/shared/jsBundles/jawr_loader.js"></script>
+<script type="text/javascript">
+                JAWR.loader.style('/bundles/css/sigaa_base.css', 'all');
+        		JAWR.loader.style('/css/ufrn_print.css', 'print');
+        		JAWR.loader.script('/bundles/js/sigaa_base.js');
+</script>
+<link rel="stylesheet" type="text/css" media="all" href="/sigaa/cssBundles/gzip_1592835619/bundles/css/sigaa.css" />
+
+
+<link rel="alternate stylesheet" type="text/css" media="screen" title="mono" href="/sigaa/css/mono.css" />
+<link rel="alternate stylesheet" type="text/css" media="screen" title="contraste" href="/sigaa/css/contraste.css" />
+
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css" href="/shared/beta/css/font-awesome.css" media="screen" />
+
+<!-- Painel Gen&#233;rico para telas Modal -->
+<script type="text/javascript" src="/shared/javascript/paineis/painel_generico.js"></script>
+
+<script src="/sigaa/javascript/styleswitch.js" type="text/javascript" ></script>
+
+<script src="/sigaa/javascript/prevenir-duplo-clique.js" type="text/javascript"></script>
+
+
+	
+	
+		<!-- Bot&#227;o de informar um problema -->
+		<link rel="stylesheet" type="text/css" href="/shared/informar-problema/css/informar-problema.css?ver=1.1" media="screen" />
+		<script type="text/javascript" src="/shared/informar-problema/js/webcomponents.min.js?ver=1.1"></script>
+		<script type="text/javascript" src="/shared/informar-problema/js/html2canvas.js?ver=1.1"></script>
+		<script type="text/javascript" src="/shared/informar-problema/js/informar-problema.js?ver=1.1"></script>
+		<!-- FIM bot&#227;o de informar um problema -->
+	
+	
+
+
+
+<script type="text/javascript">
+		var mensagem;
+		var initMensagem = function() {
+			mensagem = new Mensagem();
+		}
+		YAHOO.util.Event.addListener(window,'load', initMensagem);
+		
+		function isIE(){
+		
+					return false;
+			
+		}
+</script>
+
+<script type="text/javascript" src="/sigaa/javascript/jsCookMenuHack.js"></script>
+<!-- Fim dos imports para abrir chamado -->
+
+	<script src="/shared/javascript/STICookieConsent.js"></script>
+	<script>
+	    document.addEventListener("DOMContentLoaded", () => {
+	    	generateCookieConsentModal("SIGAA", "Ao utilizar o %sitename%, voc&#234; concorda com a pol&#237;&#173;tica de monitoramento de cookies. Para ter mais informa&#231;&#245;es sobre como isso &#233; feito e como remover, acesse a <a href=%cookie-policy%>Pol&#237;tica de Privacidade</a>. Se voc&#234; concorda, clique em %button-text%.", "https://protecaodedados.ifc.edu.br/politica-de-privacidade/", "https://protecaodedados.ifc.edu.br/politica-de-privacidade/");
+	    })
+	</script>
+	
+</head>
+
+<body>
+
+<input type="hidden" value="2" id="sistema"/>
+
+
+
+
+
+
+	<div id="container">
+	<div id="cabecalho">
+		<div id="info-sistema">
+			<h1><span>IFC - SIGAA -</span></h1>
+			<h3>Sistema Integrado de Gest&#227;o de Atividades Acad&#234;micas</h3>
+			<div class="dir">
+				
+					
+					<style>
+#info-sistema span.sair-sistema,
+	#info-sistema #tempoSessao{
+	display: inline;
+	right: inherit;
+	position: relative;
+	top: 0;
+	padding-right: inherit;
+}
+
+#info-sistema div.dir{
+	top:0;
+	right:0;
+	text-align: right;
+	width: auto;
+	position: absolute;
+	margin:0;
+	padding: 0;
+	height:16px;
+	display: inline;
+	padding-right:5px;
+	color: #FFF;
+}
+#info-sistema span.acessibilidade{
+	padding: 0 5px;
+	border: solid #D99C44;
+	border-width: 0 1px 0 0;
+	margin: 0 5px;
+	padding: 0 5px;
+}
+	#info-sistema span.acessibilidade a{
+		font-size: 1.1em;
+		font-weight: bolder;
+		color: #FFF;
+		margin-left: 2px;
+		letter-spacing: 0.1px;
+		word-spacing: 0.1px;
+	}
+	#info-sistema span.acessibilidade a.fonteMenor strong{
+		font-size: 0.9em;
+	}
+	.rich-tabpanel-content {
+		font-size: inherit;
+	}	
+</style>
+<span class="acessibilidade">
+	<a class="fonteMaior" title="Aumentar a texto" alt="Aumentar a texto" href="#">
+		<strong>A</strong>+
+	</a>
+	<a class="fonteMenor" title="Diminuir o texto" alt="Diminuir o texto" href="#">
+		<strong>A</strong>-
+	</a>
+</span>
+
+	<span class="acessibilidade">
+		<a title="Ajuda" alt="Ajuda" href="http://dti.ifc.edu.br" target="_blank">
+			Ajuda?
+		</a>
+	</span>
+
+<script type="text/javascript" src="/shared/javascript/jquery/jquery-1.4.4.min.js"></script>
+<script src="/sigaa/javascript/jquery.fontsize.js" type="text/javascript" ></script>
+<script type="text/javascript" >
+	redimensionarFonte('.acessibilidade', '#conteudo', 11, 11, 14);
+</script>
+<script>var $jq = jQuery.noConflict();</script>
+					<span id="tempoSessao"></span>
+					<span class="sair-sistema"> <a href="/sigaa/logar.do?dispatch=logOff">SAIR</a> </span>
+				
+			</div>
+		</div>
+	 
+
+	<div id="painel-usuario"  >
+	
+		<div id="menu-usuario">
+		<ul>
+			<li class="modulos">
+			
+				<span id="modulos"> <a href="#" id="show-modulos"> M&#243;dulos </a> </span>
+			
+			</li>
+			
+				
+				<li class="caixa-postal">
+				
+					
+									
+						<a href=/sigaa/abrirCaixaPostal.jsf?sistema=2 > 
+							
+							Caixa Postal					
+							
+							 
+						</a>
+					
+				
+				</li>
+				
+			
+			
+			
+				<li class="chamado">
+				
+					
+					
+						
+						
+							
+								<a href="#" onclick="window.open('/sigaa/novoChamadoAdmin.jsf?sistema=2', 'chamado', 'scrollbars=1,width=830,height=600')">Abrir Chamado</a>
+													
+						
+						
+					
+				
+				</li>
+			 
+			
+			
+			
+				 
+					<li class="menus">
+						<a href="/sigaa/verPortalDiscente.do">Menu Discente</a>
+					</li>
+				 
+			
+			
+			
+				
+
+<li class="dados-pessoais">
+	
+		<a href="#" onclick="window.open('/sigaa/alterar_dados.jsf','','width=670,height=430, top=100, left=100, scrollbars' )">Alterar senha</a>
+	
+</li>
+			
+
+			
+				<!-- INICIO bot&#227;o Informar problema -->
+					
+				<!-- FIM bot&#227;o Informar problema -->
+			
+			
+		</ul>
+		
+		
+		
+		
+		</div>
+
+		<div id="info-usuario">
+
+		<p class="periodo-atual">
+			
+				Ano Atual: <strong>2024</strong>			
+			
+			</br>
+			
+		</p>		
+		<p class="usuario">
+		
+			<span title="JONATAS SILVA PERAZA">
+				JONATAS SILVA PERAZA
+			</span>
+			
+			
+		
+		</p>
+
+		<p class="unidade">
+			CAMPUS ARAQUARI
+			 (11.01.02)
+			
+		</p>
+
+		</div>
+	
+	<div id="menu-principal"></div>
+	</div>
+	</div>
+	
+
+	<div id="conteudo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<script type="text/javascript">
+//Fun&#231;&#227;o adicionada no cabe&#231;alho para evitar a reescrita em cada JSP.
+function contarCaracteres(field, idMostraQuantidadeUsuario, maxlimit) {
+	
+	if (field.value.length > maxlimit){
+		field.value = field.value.substring(0, maxlimit);
+	}else{ 
+		document.getElementById(idMostraQuantidadeUsuario).innerHTML = maxlimit - field.value.length ;
+	} 
+}
+</script>
+
+
+
+<h2><a href='/sigaa/verPortalDiscente.do'>Portal do Discente</a> &gt;  </h2>
+
+
+<form id="form" name="form" method="post" action="/sigaa/ifc/tecnico/relatorios/seleciona_aluno_periodo.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="form" value="form" />
+<input type="hidden" name="form:j_id_jsp_1271114114_5" value="" />
+
+
+<table class="formulario" style="width:80%;">
+        <caption> Informe os crit&#233;rios de busca do aluno</caption>
+        <tbody>
+            <tr>
+                <td width="2%">
+                    <input id="form:checkMatricula" type="checkbox" name="form:checkMatricula" class="noborder" onclick="getEl('form:checkNome').dom.checked = false;" />
+                </td>
+                <th> <label for="checkMatricula">Matr&#237;cula:</label></th>
+                <td> 
+                    <input id="form:matriculaDiscente" type="text" name="form:matriculaDiscente" value="0" onfocus="getEl('form:checkMatricula').dom.checked = true; getEl('form:checkNome').dom.checked = false;" onkeyup="formatarInteiro(this)" size="15" />
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <input id="form:checkNome" type="checkbox" name="form:checkNome" checked="checked" class="noborder" />
+                </td>
+                <th> <label for="checkNome">Nome do Discente:</label></th>
+                <td> <input id="form:nomeDiscente" type="text" name="form:nomeDiscente" value="VIN&Iacute;CIUS NILO HIANSDT" onfocus="getEl('form:checkNome').dom.checked = true;getEl('form:checkMatricula').dom.checked = false;" size="60" /> </td>
+            </tr>
+            <tr>
+                <td width="2%"></td>
+                <th class="obrigatorio">Per&#237;odo:</th>
+        
+                <td>
+                    de <input id="form:inicioContagemFaltas" name="form:inicioContagemFaltas" type="text" maxlength="10" size="11" onkeypress="return(formatarMascara(this,event,'##/##/####'))" title="In&iacute;cio do Per&iacute;odo de Contagem de faltas" onfocus="selectText('null', 'form:inicioContagemFaltas')" onclick="selectText('null', 'form:inicioContagemFaltas')" value="01/01/2024" /><span id="form:inicioContagemFaltasSpan"></span><script type="text/javascript">form_3AinicioContagemFaltasCalendarVar=new org_apache_myfaces_PopupCalendar();
+form_3AinicioContagemFaltasCalendarVar.initData.imgDir = "\/sigaa\/faces\/myFacesExtensionResource\/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader\/17344049\/calendar.HtmlCalendarRenderer\/DB\/";
+form_3AinicioContagemFaltasCalendarVar.initData.monthName = new Array("Janeiro","Fevereiro","Mar\u00E7o","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
+form_3AinicioContagemFaltasCalendarVar.initData.dayName = new Array("Dom","Seg","Ter","Qua","Qui","Sex","S\u00E1b");
+form_3AinicioContagemFaltasCalendarVar.initData.startAt = 0;
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.weekdays = new Array("Domingo","Segunda-feira","Ter\u00E7a-feira","Quarta-feira","Quinta-feira","Sexta-feira","S\u00E1bado");
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.shortWeekdays = new Array("Dom","Seg","Ter","Qua","Qui","Sex","S\u00E1b");
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.shortMonths = new Array("Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez");
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.months = new Array("Janeiro","Fevereiro","Mar\u00E7o","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.eras = new Array("BC","AD");
+form_3AinicioContagemFaltasCalendarVar.dateFormatSymbols.ampms = new Array("AM","PM");
+form_3AinicioContagemFaltasCalendarVar.initData.todayDateFormat = "dd\/MM\/yyyy";
+form_3AinicioContagemFaltasCalendarVar.initData.popupLeft = false;
+
+form_3AinicioContagemFaltasCalendarVar.init(document.getElementById('form:inicioContagemFaltasSpan'));
+</script><img src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/images/calendar.gif" style="vertical-align:bottom;" onclick="form_3AinicioContagemFaltasCalendarVar._popUpCalendar(this,document.getElementById('form:inicioContagemFaltas'),'dd/MM/yyyy')" /> 
+                
+                
+                    at&#233; <input id="form:fimContagemFaltas" name="form:fimContagemFaltas" type="text" maxlength="10" size="11" onkeypress="return(formatarMascara(this,event,'##/##/####'))" title="Fim do Per&iacute;odo de Contagem de Faltas" onfocus="selectText('null', 'form:fimContagemFaltas')" onclick="selectText('null', 'form:fimContagemFaltas')" value="31/12/2024" /><span id="form:fimContagemFaltasSpan"></span><script type="text/javascript">form_3AfimContagemFaltasCalendarVar=new org_apache_myfaces_PopupCalendar();
+form_3AfimContagemFaltasCalendarVar.initData.imgDir = "\/sigaa\/faces\/myFacesExtensionResource\/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader\/17344049\/calendar.HtmlCalendarRenderer\/DB\/";
+form_3AfimContagemFaltasCalendarVar.initData.monthName = new Array("Janeiro","Fevereiro","Mar\u00E7o","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
+form_3AfimContagemFaltasCalendarVar.initData.dayName = new Array("Dom","Seg","Ter","Qua","Qui","Sex","S\u00E1b");
+form_3AfimContagemFaltasCalendarVar.initData.startAt = 0;
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.weekdays = new Array("Domingo","Segunda-feira","Ter\u00E7a-feira","Quarta-feira","Quinta-feira","Sexta-feira","S\u00E1bado");
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.shortWeekdays = new Array("Dom","Seg","Ter","Qua","Qui","Sex","S\u00E1b");
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.shortMonths = new Array("Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez");
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.months = new Array("Janeiro","Fevereiro","Mar\u00E7o","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.eras = new Array("BC","AD");
+form_3AfimContagemFaltasCalendarVar.dateFormatSymbols.ampms = new Array("AM","PM");
+form_3AfimContagemFaltasCalendarVar.initData.todayDateFormat = "dd\/MM\/yyyy";
+form_3AfimContagemFaltasCalendarVar.initData.popupLeft = false;
+
+form_3AfimContagemFaltasCalendarVar.init(document.getElementById('form:fimContagemFaltasSpan'));
+</script><img src="/sigaa/faces/myFacesExtensionResource/org.apache.myfaces.renderkit.html.util.MyFacesResourceLoader/17344049/calendar.HtmlCalendarRenderer/images/calendar.gif" style="vertical-align:bottom;" onclick="form_3AfimContagemFaltasCalendarVar._popUpCalendar(this,document.getElementById('form:fimContagemFaltas'),'dd/MM/yyyy')" />
+                </td>
+            </tr>                    
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <input id="form:buscar" type="submit" name="form:buscar" value="Buscar" /><input id="form:cancelar" type="submit" name="form:cancelar" value="Cancelar" onclick="limpaMatricula();return confirm('Deseja cancelar a opera&ccedil;&atilde;o? Todos os dados digitados n&atilde;o salvos ser&atilde;o perdidos!');" />
+                    
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+<br/>
+<div class="obrigatorio">Campos de preenchimento obrigat&#243;rio.</div>
+<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id8" />
+</form>
+
+    
+        <br />
+        <table class="listagem">
+            <caption> Selecione abaixo o discente (1) </caption>
+            <thead>
+            <tr>
+                <th colspan="3"> Aluno </th>
+                <th> Status </th>
+                <th> </th>
+            </tr>
+            <tbody>
+                
+<form id="j_id_jsp_1271114114_14" name="j_id_jsp_1271114114_14" method="post" action="/sigaa/ifc/tecnico/relatorios/seleciona_aluno_periodo.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_id_jsp_1271114114_14" value="j_id_jsp_1271114114_14" />
+
+
+                
+
+                <tr class="linhaPar">
+                    <td width="9%">2022318039</td>
+                    <td width="10">
+                    </td>
+                    <td>VIN&#205;CIUS NILO HIANSDT 
+                    </td>
+                    <td width="8%">ATIVO</td>
+                    <td align="right" width="2%">
+
+                        
+<script type="text/javascript" language="Javascript">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp) {var adp = new Array();f.adp = adp;var i = 0;for (k in pvp) {var p = document.createElement("input");p.type = "hidden";p.name = k;p.value = pvp[k];f.appendChild(p);adp[i++] = p;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>
+<a id="j_id_jsp_1271114114_14:botaoDeSelecionarODiscente" href="#" style="border: 0;" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_1271114114_14'),{'j_id_jsp_1271114114_14:botaoDeSelecionarODiscente':'j_id_jsp_1271114114_14:botaoDeSelecionarODiscente','idDiscente':'35039'},'');}return false"><img src="/sigaa/img/seta.gif" /></a>
+                    </td>
+                </tr>
+                
+
+                <input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id8" />
+</form>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" style="text-align: center; font-weight: bold;">
+                        1 discente(s) encontrado(s)
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    
+
+
+
+
+	
+	
+		
+
+<div class="clear"> </div>
+
+</div> 
+	<br />
+
+	
+	
+	<div style="width: 80%; text-align: center; margin: 0 auto;">
+		<a href='/sigaa/verPortalDiscente.do'>Portal do Discente</a>
+	</div>
+	
+	
+
+	<div id="rodape">
+		<p>	SIGAA | Diretoria de Tecnologia da Informa&#231;&#227;o - (47) 3331-7800 | Copyright &copy; 2006-2024 - UFRN - jboss-sigaa-05.sig.ifc.edu.br.sigaa05
+		
+		 
+			 - <a onclick="javascript:versao();">v4.12.8.35</a>
+				
+		</p>
+	</div>
+
+
+</div>  
+
+<div id="painel-mensagem-envio"> </div>
+
+
+
+
+
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-60968808-1', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>	
+
+
+
+<!-- MYFACES JAVASCRIPT -->
+
+</body>
+
+</html>
+ 
+	<script type="text/javascript" charset="UTF-8">
+		function versao(){
+			var msg='';
+			msg+='SIGAA 4.12.8.35,  publicado em: 16/12/2024 15:18\n\n';
+			msg+='Depend\u00eancias:\n';
+			msg+='Arquitetura 4.4.1-IFC\n';
+			msg+='Entidades Comuns 2.3.4.b-IFC\n';
+			msg+='Servicos Integrados 2.1.1-IFC\n';
+			msg+='SharedResources 2.1.2-IFC\n';
+			msg+='Servicos Remoto Biblioteca 1.0.3\n';
+			msg+='SIGAA Mobile Objects 1.0.0\n\n';
+			msg+='Copyright SINFO/UFRN';
+			alert(msg);
+		}	
+	</script>
+
+
+<script language="javascript">
+Relogio.init(60);
+</script>
+
+	
