@@ -1,6 +1,6 @@
 <script setup>
 import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
-import BookMark from "vue-material-design-icons/BookMark.vue";
+import BookMark from "vue-material-design-icons/Bookmark.vue";
 import router from "@/router";
 
 defineProps({

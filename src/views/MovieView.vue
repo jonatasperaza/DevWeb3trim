@@ -4,7 +4,7 @@ import { ref, onMounted, computed, watch } from 'vue';
 import { useMoviesStore } from '@/stores/movie/movie';
 import HeaderComponent from '@/components/global/HeaderComponent.vue';
 import PlayCircle from 'vue-material-design-icons/PlayCircle.vue';
-import BookMark from 'vue-material-design-icons/BookMark.vue';
+import BookMark from 'vue-material-design-icons/Bookmark.vue';
 import Download from 'vue-material-design-icons/Download.vue';
 import Share from 'vue-material-design-icons/Share.vue';
 import ThumbUp from 'vue-material-design-icons/ThumbUp.vue';
@@ -56,7 +56,7 @@ V<template>
               Add Watchlist
             </button>
           </div>
-
+          
           <div class="right-buttons">
             <button class="trans">
               <Download />
@@ -74,6 +74,7 @@ V<template>
         </div>
       </div>
     </section>
+    <p style="color: white;">{{ movie?.overview }}</p>
     <CarouselSimilarMovies :content="recomendations" title="Similar Movies" />
   </main>
 </template>
