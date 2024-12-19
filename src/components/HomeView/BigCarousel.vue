@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel';
 import { useMoviesStore } from '@/stores/movie/movie';
+import { useFavoritesStore } from '@/stores';
 
 const props = defineProps({
   content: {
@@ -19,6 +20,7 @@ const movieIndex = ref(0);
 const moviesPhotos = ref([]);
 const moviesStore = useMoviesStore();
 const currentMovie = ref({});
+const favoritesStore = useFavoritesStore();
 
 const truncateOverview = (overview, maxWords = 100) => {
   if (!overview) return '';
@@ -67,7 +69,7 @@ const config = {
 </p>
       <div class="buttons">
         <button class="btnPlay">▶ Play Now</button>
-        <button class="btnWatchlist">⭐ Add Watchlist</button>
+        <button class="btnWatchlist" @click="favoritesStore.addFavorite(currentMovie)">⭐ Add Watchlist</button>
       </div>
     </div>
 

@@ -10,7 +10,7 @@
             <nav class="nav">
                 <router-link to="/">Home</router-link>
                 <router-link to="/">Discover</router-link>
-                <router-link to="/">Forum</router-link>
+                <router-link to="/favorites">Favorites</router-link>
                 <router-link to="/">About</router-link>
                 <div class="login">
                     <!-- Botões de login -->

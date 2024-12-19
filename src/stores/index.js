@@ -1,3 +1,3 @@
-import { useAnimesStore } from './movie/movie'
+import { useFavoritesStore } from './movie/favorites'
 
-export default { useAnimesStore }
+export { useFavoritesStore }

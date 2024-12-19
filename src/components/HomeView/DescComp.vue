@@ -2,6 +2,9 @@
 import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
 import BookMark from "vue-material-design-icons/Bookmark.vue";
 import router from "@/router";
+import { useFavoritesStore } from "@/stores/movie/favorites";
+
+const favoritesStore = useFavoritesStore();
 
 defineProps({
     movie: Object
@@ -22,7 +25,7 @@ defineProps({
                     <PlayCircle />
                     Watch Trailer
                 </button>
-                <button class="trans">
+                <button class="trans" @click="favoritesStore.addFavorite(movie)">
                     <BookMark />
                     Add Watchlist
                 </button>

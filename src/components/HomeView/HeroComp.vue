@@ -5,9 +5,10 @@ import DescComp from './DescComp.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import { useMoviesStore } from '@/stores/movie/movie';	
-
+import { useFavoritesStore } from '@/stores/movie/favorites';
 
 const moviesStore = useMoviesStore()
+const favoritesStore = useFavoritesStore()
 
 const config = {
     autoplay: 5000,

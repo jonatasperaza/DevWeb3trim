@@ -9,6 +9,7 @@ import Download from 'vue-material-design-icons/Download.vue';
 import Share from 'vue-material-design-icons/Share.vue';
 import ThumbUp from 'vue-material-design-icons/ThumbUp.vue';
 import CarouselSimilarMovies from '@/components/Movies/CarouselSimilarMovies.vue';
+import { useFavoritesStore } from '@/stores';
 
 const id = router.currentRoute.value?.params?.id;
 
@@ -17,6 +18,7 @@ watch(() => router.currentRoute.value?.params?.id, () => {
 });
 
 const moviesStore = useMoviesStore();
+const favoritesStore = useFavoritesStore();
 
 const movie = ref(null);
 
@@ -51,7 +53,7 @@ V<template>
               <PlayCircle />
               Watch Trailer
             </button>
-            <button class="trans">
+            <button class="trans" @click="favoritesStore.addFavorite(movie)">
               <BookMark />
               Add Watchlist
             </button>
